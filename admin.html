@@ -2,70 +2,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagora Admin</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bagora Admin</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="admin-page">
 
+<header class="header">
+    <a href="index.html" class="logo">BAGORA<span>.</span></a>
+    <nav>
+        <a href="index.html">View Store</a>
+    </nav>
+</header>
+
 <div class="admin-container">
 
-    <header class="admin-header">
-        <h1>BAGORA ADMIN</h1>
-        <a href="index.html" class="back-button">Visit Website</a>
-    </header>
-
-    <section class="admin-box" id="loginBox">
-        <h2>Admin Login</h2>
+    <div class="login-box" id="loginBox">
+        <h1>Admin Login</h1>
+        <p>Login to manage your store.</p>
 
         <form id="loginForm">
-            <input type="password" id="adminPassword"
-                   placeholder="Enter Password" required>
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter password"
+                required
+            >
 
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="main-btn full-btn">
+                LOGIN
+            </button>
+
+            <p id="loginMessage" class="message"></p>
         </form>
-
-        <p id="loginMessage"></p>
-    </section>
+    </div>
 
     <div id="adminDashboard" hidden>
 
-        <section class="admin-box">
-            <h2>Upload New Product</h2>
+        <div class="admin-heading">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Manage your Bagora collection.</p>
+            </div>
+
+            <button id="logoutButton" class="logout-btn">
+                Logout
+            </button>
+        </div>
+
+        <div class="admin-card">
+
+            <h2>Add New Product</h2>
 
             <form id="productForm">
 
-                <label for="productName">Product Name</label>
-                <input type="text" id="productName" required>
+                <label>Product Name</label>
+                <input type="text" id="productName" placeholder="Bag name" required>
 
-                <label for="productPrice">Price (Rs.)</label>
-                <input type="number" id="productPrice" min="1" required>
+                <label>Product Price (Rs.)</label>
+                <input type="number" id="productPrice" placeholder="Price" min="1" required>
 
-                <label for="productDescription">Description</label>
-                <textarea id="productDescription"></textarea>
+                <label>Description</label>
+                <textarea id="productDescription" placeholder="Product description"></textarea>
 
-                <label for="productImage">Product Image</label>
-                <input type="file" id="productImage" accept="image/*" required>
+                <label>Product Photos (select multiple)</label>
+                <input type="file" id="productImage" accept="image/*" multiple required>
 
-                <button type="submit" class="btn">Add Product</button>
+                <p class="upload-hint">
+                    Select multiple photos. For best results, keep each photo under 250 KB.
+                </p>
+
+                <div id="imagePreview" class="preview-grid"></div>
+
+                <button type="submit" class="main-btn full-btn">
+                    UPLOAD PRODUCT
+                </button>
+
+                <p id="uploadMessage" class="message"></p>
             </form>
+        </div>
 
-            <p id="uploadMessage"></p>
-        </section>
-
-        <section class="admin-box">
+        <div class="admin-card">
             <h2>My Products</h2>
-            <div id="adminProductList"></div>
-        </section>
-
-        <button type="button" id="logoutButton" class="logout-button">
-            Logout
-        </button>
+            <div id="adminProductList" class="admin-product-list"></div>
+        </div>
 
     </div>
 
 </div>
+
+<footer class="footer">
+    <p>&copy; 2026 Bagora. All Rights Reserved.</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
