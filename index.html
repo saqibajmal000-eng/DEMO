@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagora | Ladies Bags Marketplace</title>
+    <title>Bagora - Ladies Bags</title>
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="style.css">
@@ -13,234 +13,278 @@
 
 <!-- HEADER -->
 <header class="header">
-    <div class="logo">BAGORA<span>.</span></div>
+    <div class="logo">BAGORA</div>
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#products">Shop</a>
-        <a href="#sell">Sell Your Bag</a>
+        <a href="#products">All Products</a>
+        <a href="#upload">Upload Bag</a>
     </nav>
-
-    <a href="#sell" class="sell-btn">+ Sell Your Bag</a>
 </header>
 
-<!-- HERO SECTION -->
+<!-- FIRST SECTION: IMAGE BANNER -->
 <section class="hero" id="home">
 
-    <div class="hero-content">
-        <p class="small-heading">STYLE • ELEGANCE • BEAUTY</p>
+    <div class="hero-text">
+        <h1>Style That<br>Carried With You</h1>
 
-        <h1>Find Your Perfect<br>
-        <span>Handbag</span></h1>
+        <p>Discover beautiful bags for every style and every occasion.</p>
 
-        <p class="hero-text">
-            Discover beautiful ladies bags for every style,
-            every occasion and every moment.
-        </p>
-
-        <a href="#products" class="shop-btn">Explore Collection →</a>
+        <a href="#products" class="hero-btn">Shop Now</a>
     </div>
 
     <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85"
-        alt="Ladies handbag">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"
+        alt="Fashion ladies bag">
     </div>
 
 </section>
 
-<!-- SEARCH -->
-<section class="search-section">
-    <input type="text" id="searchInput"
-    placeholder="Search handbags, shoulder bags, colors...">
+<!-- ALL PRODUCTS: EMPTY AT FIRST -->
+<section class="products-section" id="products">
 
-    <button onclick="searchProducts()">Search</button>
-</section>
+    <h2>All Products</h2>
+    <p class="subtitle">Explore bags added by our sellers</p>
 
-<!-- CATEGORIES -->
-<section class="categories" id="categories">
+    <div id="productGrid" class="product-grid"></div>
 
-    <h2>Shop By Category</h2>
-    <p class="section-subtitle">Find a bag that matches your style</p>
-
-    <div class="category-list">
-
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80">
-            <h3>Handbags</h3>
-        </div>
-
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=400&q=80">
-            <h3>Shoulder Bags</h3>
-        </div>
-
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=400&q=80">
-            <h3>Luxury Bags</h3>
-        </div>
-
-        <div class="category">
-            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=400&q=80">
-            <h3>Crossbody Bags</h3>
-        </div>
-
+    <div id="emptyMessage" class="empty-message">
+        <div class="empty-icon">👜</div>
+        <h3>No Products Available</h3>
+        <p>Be the first to upload a beautiful bag!</p>
     </div>
 
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
+<!-- UPLOAD SECTION -->
+<section class="upload-section" id="upload">
 
-    <h2>Latest Collection</h2>
-    <p class="section-subtitle">Explore bags added to our marketplace</p>
+    <div class="upload-box">
 
-    <div class="product-grid" id="productGrid">
+        <h2>Upload Your Bag</h2>
+        <p>Add your product to our marketplace</p>
 
-        <div class="product-card" data-name="Elegant Brown Handbag">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80">
-            <div class="product-info">
-                <p class="tag">TRENDING</p>
-                <h3>Elegant Brown Handbag</h3>
-                <p class="price">Rs. 4,500</p>
-                <p class="description">Stylish handbag for everyday use.</p>
-                <button class="contact-btn">View Product</button>
-            </div>
-        </div>
+        <form id="uploadForm">
 
-        <div class="product-card" data-name="Black Shoulder Bag">
-            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80">
-            <div class="product-info">
-                <p class="tag">POPULAR</p>
-                <h3>Black Shoulder Bag</h3>
-                <p class="price">Rs. 3,200</p>
-                <p class="description">Beautiful black bag with premium look.</p>
-                <button class="contact-btn">View Product</button>
-            </div>
-        </div>
+            <!-- MOBILE GALLERY / COMPUTER FILE PICKER -->
+            <label class="photo-upload" for="bagPhoto">
+                <span class="upload-icon">＋</span>
+                <span id="photoLabel">Choose Photo From Gallery</span>
+                <small>Tap here to select an image</small>
+            </label>
 
-        <div class="product-card" data-name="Luxury Pink Bag">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80">
-            <div class="product-info">
-                <p class="tag">NEW</p>
-                <h3>Luxury Pink Bag</h3>
-                <p class="price">Rs. 5,800</p>
-                <p class="description">Perfect bag for parties and events.</p>
-                <button class="contact-btn">View Product</button>
-            </div>
-        </div>
+            <input type="file"
+                   id="bagPhoto"
+                   accept="image/*"
+                   required>
 
-        <div class="product-card" data-name="Classic Ladies Bag">
-            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80">
-            <div class="product-info">
-                <p class="tag">SPECIAL</p>
-                <h3>Classic Ladies Bag</h3>
-                <p class="price">Rs. 2,900</p>
-                <p class="description">Simple, elegant and fashionable.</p>
-                <button class="contact-btn">View Product</button>
-            </div>
-        </div>
+            <div id="imagePreview"></div>
 
-    </div>
+            <input type="text"
+                   id="bagName"
+                   placeholder="Bag Name"
+                   required>
 
-</section>
-
-<!-- SELL PRODUCT -->
-<section class="sell-section" id="sell">
-
-    <div class="sell-content">
-        <h2>Sell Your Bag</h2>
-        <p>Upload your product and let people discover your style.</p>
-
-        <form id="productForm">
-
-            <input type="text" id="bagName"
-            placeholder="Product Name" required>
-
-            <input type="number" id="bagPrice"
-            placeholder="Price in PKR" required>
-
-            <input type="text" id="bagCategory"
-            placeholder="Category (Handbag, Shoulder Bag)" required>
-
-            <input type="text" id="bagImage"
-            placeholder="Image URL" required>
+            <input type="number"
+                   id="bagPrice"
+                   placeholder="Price in PKR"
+                   min="1"
+                   required>
 
             <textarea id="bagDescription"
-            placeholder="Product Description" required></textarea>
+                      placeholder="Write product description..."
+                      required></textarea>
 
-            <button type="submit">Publish Product</button>
+            <button type="submit" class="upload-btn">
+                Upload Product
+            </button>
 
         </form>
+
     </div>
 
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-    <h2>BAGORA<span>.</span></h2>
-    <p>Your style. Your bag. Your marketplace.</p>
-    <p>© 2026 Bagora Ladies Bags Marketplace</p>
+    <h2>BAGORA</h2>
+    <p>Beautiful Bags. Beautiful Style.</p>
+    <p>© 2026 Bagora</p>
 </footer>
 
 <script>
 
-function searchProducts() {
+let uploadedPhoto = "";
+let products = JSON.parse(localStorage.getItem("bagoraProducts") || "[]");
 
-    let input = document.getElementById("searchInput").value.toLowerCase();
+const photoInput = document.getElementById("bagPhoto");
+const preview = document.getElementById("imagePreview");
+const photoLabel = document.getElementById("photoLabel");
+const productGrid = document.getElementById("productGrid");
+const emptyMessage = document.getElementById("emptyMessage");
 
-    let products = document.querySelectorAll(".product-card");
+// IMAGE SELECT
+photoInput.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please select an image.");
+        this.value = "";
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+        const image = new Image();
+
+        image.onload = function() {
+
+            // Resize image to reduce storage usage
+            const canvas = document.createElement("canvas");
+            const maxSize = 1000;
+
+            let width = image.width;
+            let height = image.height;
+
+            if (width > maxSize || height > maxSize) {
+                const ratio = Math.min(maxSize / width, maxSize / height);
+                width = Math.round(width * ratio);
+                height = Math.round(height * ratio);
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(image, 0, 0, width, height);
+
+            uploadedPhoto = canvas.toDataURL("image/jpeg", 0.75);
+
+            preview.innerHTML = `
+                <img src="${uploadedPhoto}" alt="Selected bag">
+            `;
+
+            photoLabel.innerText = "Photo Selected Successfully";
+        };
+
+        image.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+// ADD PRODUCT
+document.getElementById("uploadForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    if (!uploadedPhoto) {
+        alert("Please select a bag photo first.");
+        return;
+    }
+
+    const product = {
+        id: Date.now(),
+        name: document.getElementById("bagName").value.trim(),
+        price: document.getElementById("bagPrice").value,
+        description: document.getElementById("bagDescription").value.trim(),
+        image: uploadedPhoto
+    };
+
+    products.unshift(product);
+
+    try {
+        localStorage.setItem("bagoraProducts", JSON.stringify(products));
+    } catch (error) {
+        products.shift();
+        alert("Storage is full. Please use a smaller photo.");
+        return;
+    }
+
+    displayProducts();
+
+    this.reset();
+    preview.innerHTML = "";
+    uploadedPhoto = "";
+    photoLabel.innerText = "Choose Photo From Gallery";
+
+    document.getElementById("products").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+// DISPLAY PRODUCTS
+function displayProducts() {
+
+    productGrid.innerHTML = "";
+
+    if (products.length === 0) {
+        emptyMessage.style.display = "block";
+        return;
+    }
+
+    emptyMessage.style.display = "none";
 
     products.forEach(function(product) {
 
-        let name = product.innerText.toLowerCase();
+        const card = document.createElement("div");
+        card.className = "product-card";
 
-        if(name.includes(input)) {
-            product.style.display = "block";
-        } else {
-            product.style.display = "none";
-        }
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.alt = product.name;
+        img.className = "product-image";
+
+        const info = document.createElement("div");
+        info.className = "product-info";
+
+        const name = document.createElement("h3");
+        name.textContent = product.name;
+
+        const price = document.createElement("p");
+        price.className = "product-price";
+        price.textContent = "Rs. " + Number(product.price).toLocaleString("en-PK");
+
+        const description = document.createElement("p");
+        description.className = "product-description";
+        description.textContent = product.description;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "Remove Product";
+
+        deleteBtn.addEventListener("click", function() {
+
+            if (confirm("Do you want to remove this product?")) {
+                products = products.filter(p => p.id !== product.id);
+                localStorage.setItem("bagoraProducts", JSON.stringify(products));
+                displayProducts();
+            }
+
+        });
+
+        info.appendChild(name);
+        info.appendChild(price);
+        info.appendChild(description);
+        info.appendChild(deleteBtn);
+
+        card.appendChild(img);
+        card.appendChild(info);
+
+        productGrid.appendChild(card);
 
     });
 
 }
 
-// Upload product on page
-document.getElementById("productForm").addEventListener("submit", function(e) {
-
-    e.preventDefault();
-
-    let name = document.getElementById("bagName").value;
-    let price = document.getElementById("bagPrice").value;
-    let category = document.getElementById("bagCategory").value;
-    let image = document.getElementById("bagImage").value;
-    let description = document.getElementById("bagDescription").value;
-
-    let productGrid = document.getElementById("productGrid");
-
-    let newProduct = document.createElement("div");
-    newProduct.className = "product-card";
-    newProduct.setAttribute("data-name", name);
-
-    newProduct.innerHTML = `
-        <img src="${image}" alt="${name}">
-        <div class="product-info">
-            <p class="tag">NEW PRODUCT</p>
-            <h3>${name}</h3>
-            <p class="price">Rs. ${price}</p>
-            <p class="description">${category}</p>
-            <p class="description">${description}</p>
-            <button class="contact-btn">View Product</button>
-        </div>
-    `;
-
-    productGrid.prepend(newProduct);
-
-    document.getElementById("productForm").reset();
-
-    alert("Your product has been published successfully!");
-
-});
+// LOAD SAVED PRODUCTS WHEN WEBSITE OPENS
+displayProducts();
 
 </script>
 
