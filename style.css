@@ -1,85 +1,60 @@
+/* TABLETS */
 
-/* SMOOTH SCROLL */
-
-html {
-    scroll-behavior: smooth;
-}
-
-button {
-    transition: 0.3s;
-}
-
-/* TABLET */
-
-@media (max-width: 950px) {
-
-    .hero {
-        padding: 40px 5%;
-        gap: 25px;
-    }
-
-    .hero-text h1 {
-        font-size: 42px;
-    }
-
-    .hero-image img {
-        height: 350px;
-    }
+@media screen and (max-width: 1000px) {
 
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 55px;
     }
 
 }
 
 /* MOBILE */
 
-@media (max-width: 650px) {
+@media screen and (max-width: 700px) {
 
     .header {
         flex-direction: column;
         gap: 20px;
-        padding: 20px;
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 27px;
     }
 
     nav {
-        gap: 18px;
+        gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
     nav a {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .hero {
-        flex-direction: column;
-        padding: 35px 20px;
+        min-height: 420px;
+        padding: 50px 7%;
     }
 
-    .hero-text,
-    .hero-image {
-        width: 100%;
+    .hero h1 {
+        font-size: 43px;
     }
 
-    .hero-text h1 {
-        font-size: 40px;
-    }
-
-    .hero-text p {
+    .hero-content p {
         font-size: 15px;
     }
 
-    .hero-image img {
-        height: 300px;
-    }
-
     .products-section {
-        padding: 45px 20px;
+        padding: 60px 5%;
     }
 
-    .products-section h2 {
-        font-size: 28px;
+    .section-heading h2 {
+        font-size: 30px;
     }
 
     .product-grid {
@@ -87,42 +62,71 @@ button {
         gap: 12px;
     }
 
-    .product-image {
-        height: 190px;
+    .product-card img {
+        height: 220px;
     }
 
     .product-info {
-        padding: 12px;
+        padding: 13px;
     }
 
     .product-info h3 {
         font-size: 15px;
     }
 
-    .product-price {
-        font-size: 18px;
-    }
-
     .product-description {
         font-size: 12px;
     }
 
+    .product-info h4 {
+        font-size: 17px;
+    }
+
+    .order-btn {
+        padding: 11px 5px;
+        font-size: 12px;
+    }
+
+    .upload-section {
+        padding: 60px 5%;
+    }
+
     .upload-box {
-        padding: 22px 16px;
+        padding: 22px;
+    }
+
+    .modal-box {
+        padding: 25px 18px;
+    }
+
+    .price-summary h3 {
+        font-size: 16px;
     }
 
 }
 
-/* SMALL PHONES */
+/* SMALL MOBILE */
 
-@media (max-width: 380px) {
+@media screen and (max-width: 380px) {
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
 
     .product-grid {
         grid-template-columns: 1fr;
     }
 
-    .product-image {
-        height: 250px;
+    .product-card img {
+        height: 300px;
     }
 
 }
