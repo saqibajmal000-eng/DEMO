@@ -4,70 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagora Admin Panel</title>
+    <title>Bagora Admin</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="admin-body">
+<body class="admin-page">
 
 <div class="admin-container">
 
     <header class="admin-header">
-        <h1>BAGORA <span>ADMIN</span></h1>
-        <a href="index.html" class="back-btn">View Website</a>
+        <h1>BAGORA ADMIN</h1>
+        <a href="index.html" class="back-button">Visit Website</a>
     </header>
 
     <section class="admin-box" id="loginBox">
         <h2>Admin Login</h2>
-        <p>Enter your admin password to continue.</p>
 
-        <input type="password" id="adminPassword"
-               placeholder="Enter password">
+        <form id="loginForm">
+            <input type="password" id="adminPassword"
+                   placeholder="Enter Password" required>
 
-        <button class="main-btn" onclick="adminLogin()">
-            LOGIN
-        </button>
+            <button type="submit" class="btn">Login</button>
+        </form>
 
-        <p id="loginMessage" class="message"></p>
+        <p id="loginMessage"></p>
     </section>
 
-    <div id="adminDashboard" style="display:none;">
+    <div id="adminDashboard" hidden>
 
         <section class="admin-box">
-            <h2>Add New Product</h2>
+            <h2>Upload New Product</h2>
 
             <form id="productForm">
 
-                <label>Product Name</label>
-                <input type="text" id="productName"
-                       placeholder="Enter product name" required>
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" required>
 
-                <label>Product Price (Rs.)</label>
-                <input type="number" id="productPrice"
-                       placeholder="Enter price" min="1" required>
+                <label for="productPrice">Price (Rs.)</label>
+                <input type="number" id="productPrice" min="1" required>
 
-                <label>Product Image</label>
-                <input type="file" id="productImage"
-                       accept="image/*" required>
+                <label for="productDescription">Description</label>
+                <textarea id="productDescription"></textarea>
 
-                <label>Product Description</label>
-                <textarea id="productDescription"
-                          placeholder="Enter product description"></textarea>
+                <label for="productImage">Product Image</label>
+                <input type="file" id="productImage" accept="image/*" required>
 
-                <button type="submit" class="main-btn">
-                    UPLOAD PRODUCT
-                </button>
+                <button type="submit" class="btn">Add Product</button>
             </form>
 
-            <p id="uploadMessage" class="message"></p>
+            <p id="uploadMessage"></p>
         </section>
 
         <section class="admin-box">
-            <h2>Manage Products</h2>
+            <h2>My Products</h2>
             <div id="adminProductList"></div>
         </section>
 
-        <button class="logout-btn" onclick="adminLogout()">
-            LOGOUT
+        <button type="button" id="logoutButton" class="logout-button">
+            Logout
         </button>
 
     </div>
