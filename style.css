@@ -1,54 +1,49 @@
 
-/* ANIMATIONS */
+/* SMOOTH SCROLL */
 
 html {
     scroll-behavior: smooth;
 }
 
-button,
-a {
+button {
     transition: 0.3s;
 }
 
-button:hover {
-    opacity: 0.85;
-}
+/* TABLET */
 
-/* RESPONSIVE TABLET */
+@media (max-width: 950px) {
 
-@media (max-width: 1000px) {
-
-    .hero h1 {
-        font-size: 48px;
+    .hero {
+        padding: 40px 5%;
+        gap: 25px;
     }
 
-    .category-list {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-text h1 {
+        font-size: 42px;
+    }
+
+    .hero-image img {
+        height: 350px;
     }
 
     .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .header {
-        padding: 20px 4%;
-    }
-
-    nav {
-        gap: 15px;
-    }
 }
 
-/* RESPONSIVE MOBILE */
+/* MOBILE */
 
 @media (max-width: 650px) {
 
     .header {
         flex-direction: column;
         gap: 20px;
+        padding: 20px;
     }
 
     nav {
+        gap: 18px;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -57,36 +52,34 @@ button:hover {
         font-size: 13px;
     }
 
-    .sell-btn {
-        width: 100%;
-        text-align: center;
-    }
-
     .hero {
         flex-direction: column;
-        padding: 40px 6%;
+        padding: 35px 20px;
     }
 
-    .hero-content,
+    .hero-text,
     .hero-image {
         width: 100%;
     }
 
-    .hero h1 {
-        font-size: 42px;
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        font-size: 15px;
     }
 
     .hero-image img {
-        height: 320px;
+        height: 300px;
     }
 
-    .category-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .products-section {
+        padding: 45px 20px;
     }
 
-    .category img {
-        height: 170px;
+    .products-section h2 {
+        font-size: 28px;
     }
 
     .product-grid {
@@ -94,7 +87,7 @@ button:hover {
         gap: 12px;
     }
 
-    .product-card > img {
+    .product-image {
         height: 190px;
     }
 
@@ -106,18 +99,21 @@ button:hover {
         font-size: 15px;
     }
 
-    .price {
+    .product-price {
         font-size: 18px;
     }
 
-    .categories,
-    .products {
-        padding: 40px 5%;
+    .product-description {
+        font-size: 12px;
+    }
+
+    .upload-box {
+        padding: 22px 16px;
     }
 
 }
 
-/* SMALL MOBILE */
+/* SMALL PHONES */
 
 @media (max-width: 380px) {
 
@@ -125,8 +121,8 @@ button:hover {
         grid-template-columns: 1fr;
     }
 
-    .category-list {
-        grid-template-columns: 1fr;
+    .product-image {
+        height: 250px;
     }
 
 }
