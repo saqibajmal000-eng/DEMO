@@ -1,428 +1,79 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bagora | Ladies Bags</title>
-
-<link rel="stylesheet" href="main.css">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagora | Ladies Bags</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="header">
+<header class="navbar">
     <div class="logo">BAGORA<span>.</span></div>
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#products">All Products</a>
-        <a href="#upload">Upload Bag</a>
-        <a href="admin.html">Admin</a>
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<!-- HERO SECTION -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <p class="hero-small">YOUR STYLE, YOUR BAG</p>
-        <h1>Beautiful Bags.<br>Beautiful Style.</h1>
-        <p>Discover beautiful bags for your everyday style.</p>
-        <a href="#products" class="hero-btn">SHOP NOW</a>
+        <p class="subtitle">ELEGANCE IN EVERY DETAIL</p>
+        <h1>Carry Your<br>Style Beautifully</h1>
+        <p>Discover beautiful handbags for every occasion.</p>
+        <a href="#products" class="main-btn">SHOP NOW</a>
     </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products-section" id="products">
+<section class="section" id="products">
+    <p class="subtitle">OUR COLLECTION</p>
+    <h2>Beautiful Bags for You</h2>
+    <p class="section-description">
+        Find your perfect style with Bagora.
+    </p>
 
-    <div class="section-heading">
-        <p>OUR COLLECTION</p>
-        <h2>All Products</h2>
-    </div>
-
-    <div id="productGrid" class="product-grid"></div>
-
-    <div id="emptyMessage" class="empty-message">
-        <h3>No Products Available</h3>
-        <p>Our collection will appear here when products are uploaded.</p>
-    </div>
-
+    <div class="products-grid" id="productList"></div>
 </section>
 
-<!-- UPLOAD SECTION -->
-<section class="upload-section" id="upload">
-
-    <div class="section-heading">
-        <p>ADD YOUR COLLECTION</p>
-        <h2>Upload a New Bag</h2>
+<section class="about-section" id="about">
+    <div class="about-content">
+        <p class="subtitle">ABOUT BAGORA</p>
+        <h2>Style. Beauty. Confidence.</h2>
+        <p>
+            Bagora brings you elegant and stylish ladies handbags.
+            Our collection is designed for women who love fashion,
+            quality and beauty. Find your favorite bag and order
+            conveniently through WhatsApp.
+        </p>
     </div>
-
-    <div class="upload-box">
-
-        <form id="uploadForm">
-
-            <label>Bag Photo</label>
-            <input type="file" id="bagPhoto" accept="image/*" required>
-
-            <div id="previewBox">
-                <img id="previewImage" src="" alt="Bag preview">
-            </div>
-
-            <label>Bag Name</label>
-            <input type="text" id="bagName" placeholder="Enter bag name" required>
-
-            <label>Price (Rs.)</label>
-            <input type="number" id="bagPrice" placeholder="Enter price" min="1" required>
-
-            <label>Description</label>
-            <textarea id="bagDescription" placeholder="Enter bag description"></textarea>
-
-            <button type="submit" class="main-btn">UPLOAD PRODUCT</button>
-
-        </form>
-
-    </div>
-
 </section>
 
-<!-- FOOTER -->
+<section class="contact-section" id="contact">
+    <p class="subtitle">GET IN TOUCH</p>
+    <h2>Contact Bagora</h2>
+    <p>Have a question about a bag? Contact us directly.</p>
+
+    <div class="contact-card">
+        <p><strong>WhatsApp:</strong> +92 313 7925446</p>
+        <p><strong>Orders:</strong> Available through WhatsApp</p>
+        <a class="main-btn"
+           href="https://wa.me/923137925446"
+           target="_blank">
+           CONTACT US ON WHATSAPP
+        </a>
+    </div>
+</section>
+
 <footer>
     <h2>BAGORA.</h2>
-    <p>Beautiful Bags. Beautiful Style.</p>
+    <p>Fashion that carries confidence.</p>
     <p>© 2026 Bagora. All Rights Reserved.</p>
 </footer>
 
-<!-- ORDER MODAL -->
-<div class="modal" id="orderModal">
-
-    <div class="modal-box">
-
-        <button class="close-btn" id="closeModal">&times;</button>
-
-        <h2>Place Your Order</h2>
-        <p class="modal-subtitle">Complete your order details below.</p>
-
-        <div id="orderProductInfo"></div>
-
-        <form id="orderForm">
-
-            <label>Your Name</label>
-            <input type="text" id="customerName" placeholder="Enter your name" required>
-
-            <label>WhatsApp Number</label>
-            <input type="tel" id="customerPhone" placeholder="03XXXXXXXXX" required>
-
-            <label>Quantity</label>
-            <input type="number" id="orderQty" value="1" min="1" required>
-
-            <div class="price-summary">
-                <p>Product Total: <span id="productTotal">Rs. 0</span></p>
-                <p>Delivery Charges: <span>Rs. 100</span></p>
-                <h3>Grand Total: <span id="grandTotal">Rs. 100</span></h3>
-            </div>
-
-            <button type="submit" class="main-btn">CONFIRM ORDER</button>
-
-        </form>
-
-    </div>
-
-</div>
-
-<script>
-const DELIVERY_CHARGES = 100;
-
-let products = JSON.parse(localStorage.getItem("bagoraProducts") || "[]");
-let orders = JSON.parse(localStorage.getItem("bagoraOrders") || "[]");
-
-let selectedProduct = null;
-
-function saveProducts() {
-    localStorage.setItem("bagoraProducts", JSON.stringify(products));
-}
-
-function saveOrders() {
-    localStorage.setItem("bagoraOrders", JSON.stringify(orders));
-}
-
-function escapeHTML(text) {
-    return String(text ?? "").replace(/[&<>"']/g, function(character) {
-        return {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-        }[character];
-    });
-}
-
-/* SHOW PRODUCTS */
-
-function showProducts() {
-
-    const grid = document.getElementById("productGrid");
-    const empty = document.getElementById("emptyMessage");
-
-    grid.innerHTML = "";
-
-    if (products.length === 0) {
-        empty.style.display = "block";
-        return;
-    }
-
-    empty.style.display = "none";
-
-    products.forEach(function(product) {
-
-        const card = document.createElement("div");
-        card.className = "product-card";
-
-        card.innerHTML = `
-            <img src="${product.image}" alt="Bag">
-            <div class="product-info">
-                <h3>${escapeHTML(product.name)}</h3>
-                <p class="product-description">${escapeHTML(product.description || "")}</p>
-                <h4>Rs. ${Number(product.price).toLocaleString()}</h4>
-                <button class="order-btn">ORDER NOW</button>
-            </div>
-        `;
-
-        card.querySelector(".order-btn").addEventListener("click", function() {
-            openOrder(product);
-        });
-
-        grid.appendChild(card);
-    });
-}
-
-/* IMAGE PREVIEW */
-
-document.getElementById("bagPhoto").addEventListener("change", function() {
-
-    const file = this.files[0];
-
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-        alert("Please select an image.");
-        this.value = "";
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function(event) {
-        document.getElementById("previewImage").src = event.target.result;
-        document.getElementById("previewBox").style.display = "block";
-    };
-
-    reader.readAsDataURL(file);
-});
-
-/* COMPRESS IMAGE */
-
-function compressImage(file) {
-
-    return new Promise(function(resolve, reject) {
-
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-
-            const image = new Image();
-
-            image.onload = function() {
-
-                const canvas = document.createElement("canvas");
-                const maxSize = 900;
-
-                let width = image.width;
-                let height = image.height;
-
-                if (width > maxSize || height > maxSize) {
-                    const ratio = Math.min(maxSize / width, maxSize / height);
-                    width *= ratio;
-                    height *= ratio;
-                }
-
-                canvas.width = width;
-                canvas.height = height;
-
-                const context = canvas.getContext("2d");
-                context.drawImage(image, 0, 0, width, height);
-
-                resolve(canvas.toDataURL("image/jpeg", 0.70));
-            };
-
-            image.onerror = reject;
-            image.src = event.target.result;
-        };
-
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
-}
-
-/* UPLOAD PRODUCT */
-
-document.getElementById("uploadForm").addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    const file = document.getElementById("bagPhoto").files[0];
-    const name = document.getElementById("bagName").value.trim();
-    const price = Number(document.getElementById("bagPrice").value);
-    const description = document.getElementById("bagDescription").value.trim();
-
-    if (!file || !name || price <= 0) {
-        alert("Please complete all required fields.");
-        return;
-    }
-
-    try {
-
-        const image = await compressImage(file);
-
-        const product = {
-            id: Date.now(),
-            name: name,
-            price: price,
-            description: description,
-            image: image
-        };
-
-        products.unshift(product);
-
-        saveProducts();
-        showProducts();
-
-        this.reset();
-        document.getElementById("previewBox").style.display = "none";
-
-        alert("Product uploaded successfully!");
-
-        document.getElementById("products").scrollIntoView({
-            behavior: "smooth"
-        });
-
-    } catch (error) {
-        alert("Unable to upload. The image may be too large or storage is full.");
-    }
-});
-
-/* OPEN ORDER */
-
-function openOrder(product) {
-
-    selectedProduct = product;
-
-    document.getElementById("orderProductInfo").innerHTML = `
-        <div class="order-product">
-            <img src="${product.image}" alt="Bag">
-            <div>
-                <h3>${escapeHTML(product.name)}</h3>
-                <p>Rs. ${Number(product.price).toLocaleString()}</p>
-            </div>
-        </div>
-    `;
-
-    document.getElementById("orderQty").value = 1;
-
-    updateOrderTotal();
-
-    document.getElementById("orderModal").style.display = "flex";
-}
-
-/* TOTAL CALCULATION */
-
-function updateOrderTotal() {
-
-    if (!selectedProduct) return;
-
-    let quantity = Number(document.getElementById("orderQty").value);
-
-    if (!quantity || quantity < 1) quantity = 1;
-
-    const productTotal = selectedProduct.price * quantity;
-    const total = productTotal + DELIVERY_CHARGES;
-
-    document.getElementById("productTotal").textContent =
-        "Rs. " + productTotal.toLocaleString();
-
-    document.getElementById("grandTotal").textContent =
-        "Rs. " + total.toLocaleString();
-}
-
-document.getElementById("orderQty").addEventListener("input", updateOrderTotal);
-
-/* CLOSE MODAL */
-
-document.getElementById("closeModal").addEventListener("click", function() {
-    document.getElementById("orderModal").style.display = "none";
-});
-
-document.getElementById("orderModal").addEventListener("click", function(event) {
-    if (event.target === this) {
-        this.style.display = "none";
-    }
-});
-
-/* SAVE ORDER */
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    if (!selectedProduct) return;
-
-    const name = document.getElementById("customerName").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    const quantity = Number(document.getElementById("orderQty").value);
-
-    if (!name || !phone || quantity < 1) {
-        alert("Please enter valid order details.");
-        return;
-    }
-
-    const productTotal = selectedProduct.price * quantity;
-    const total = productTotal + DELIVERY_CHARGES;
-
-    const order = {
-        id: Date.now(),
-        customerName: name,
-        customerPhone: phone,
-        productName: selectedProduct.name,
-        productPrice: selectedProduct.price,
-        quantity: quantity,
-        delivery: DELIVERY_CHARGES,
-        total: total,
-        date: new Date().toLocaleString(),
-        status: "New"
-    };
-
-    orders.unshift(order);
-
-    try {
-        saveOrders();
-    } catch (error) {
-        orders.shift();
-        alert("Unable to save order. Browser storage may be full.");
-        return;
-    }
-
-    this.reset();
-    document.getElementById("orderModal").style.display = "none";
-
-    alert("Order placed successfully!");
-
-    selectedProduct = null;
-});
-
-/* INITIAL LOAD */
-
-showProducts();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
