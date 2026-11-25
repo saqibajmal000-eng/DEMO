@@ -2,65 +2,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagora - Ladies Bags</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAGORA | Fashion that carries confidence</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="navbar">
-    <h2 class="logo">BAGORA</h2>
+<header class="header">
+    <a href="index.html" class="logo">BAGORA<span>.</span></a>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
+        <a href="index.html">Home</a>
+        <a href="#shop">Shop</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="admin.html" class="admin-link">Admin</a>
     </nav>
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-content">
-        <p>BEAUTY • FASHION • ELEGANCE</p>
-        <h1>Find Your<br>Perfect Bag</h1>
-        <p>Beautiful ladies bags for every occasion.</p>
-        <a href="#products" class="btn">SHOP NOW</a>
+<!-- HERO SLIDER -->
+<section class="hero" id="hero">
+    <div class="hero-content" id="heroContent">
+        <p class="hero-tag">BAGORA COLLECTION</p>
+        <h1>Fashion that<br>carries confidence.</h1>
+        <p>Discover bags made for your everyday style.</p>
+        <a href="#shop" class="main-btn">SHOP NOW</a>
+    </div>
+
+    <div class="hero-image" id="heroImage"></div>
+
+    <button class="slider-btn prev" id="prevSlide">&#10094;</button>
+    <button class="slider-btn next" id="nextSlide">&#10095;</button>
+
+    <div class="slider-dots" id="sliderDots"></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div>✦ Stylish Collection</div>
+    <div>✦ Quality Products</div>
+    <div>✦ Easy WhatsApp Ordering</div>
+</section>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+    <div class="section-heading">
+        <p class="small-heading">OUR COLLECTION</p>
+        <h2>Discover Your Style</h2>
+        <p>Explore our latest bags and find your favorite.</p>
+    </div>
+
+    <div class="product-grid" id="productList">
+        <p class="empty-message">Loading products...</p>
     </div>
 </section>
 
-<section class="section" id="products">
-    <h2>Our Collection</h2>
-    <p>Discover your favorite bags</p>
-
-    <div id="productList" class="products-grid"></div>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+    <div class="about-content">
+        <p class="small-heading">ABOUT BAGORA</p>
+        <h2>Style in every detail.</h2>
+        <p>
+            Bagora brings fashion, elegance and confidence together.
+            Discover beautiful bags designed to complete your style
+            and make every day special.
+        </p>
+    </div>
 </section>
 
-<section class="about" id="about">
-    <h2>About Bagora</h2>
-    <p>
-        Bagora offers stylish and elegant ladies bags.
-        We bring fashion, beauty and confidence together.
-        Choose your favorite bag and order easily through WhatsApp.
-    </p>
-</section>
-
-<section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Contact us for orders and information.</p>
-    <p>WhatsApp: +92 313 7925446</p>
-
-    <a class="btn" href="https://wa.me/923137925446" target="_blank" rel="noopener">
-        CONTACT ON WHATSAPP
-    </a>
-</section>
-
-<footer>
-    <h2>BAGORA</h2>
+<!-- FOOTER -->
+<footer class="footer">
+    <h2>BAGORA<span>.</span></h2>
     <p>Fashion that carries confidence.</p>
-    <p>© 2026 Bagora. All rights reserved.</p>
-
-    <a href="admin.html" class="admin-link">Admin Login</a>
+    <a href="admin.html">Admin Login</a>
+    <p class="copyright">&copy; 2026 Bagora. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
